@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Faculty of Chemistry and Pharmacy, Sofia University</title>
+    <title>GPS Protection</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -129,7 +129,7 @@
                             {%endfor%}
                         </div>
                         <input type="hidden" id="research_interests" name="research_interests" value="{%for research_interest in staff.research_interests%}{{research_interest}}{%endfor%}">
-                        <button type="button" class="form-control bg-light border-0" style="height: 55px; margin-left:8px; margin-top:15px;" onclick='addResearchInterest(event)'>Add research interest</button>
+                        <button type="button" class="form-control bg-light border-0" style="height: 55px; margin-left:8px; margin-top:15px;" onclick='addResearchInterest(event)'>Добави устройство</button>
                         <p id="limitMessage" style="color: red; display: none;">Limit of 10 research interests reached!</p>
                     </div>
                     <div class="col-12">
@@ -190,45 +190,23 @@
         <div class="overlay" id='research-form-container'>
             <div class="form-container">
             <span class="closeBtn" onclick="hideResearchForm()" style="cursor:pointer;">&times;</span>
-            <h2 style='text-align:center;'> Add Research </h2>
+            <h2 style='text-align:center;'> Добави устройство </h2>
             <form enctype="multipart/form-data" class="scrollable-form" id="researchForm" method='POST'>
                 {% csrf_token %}
                 <div class="row g-3">
 
                     <div class="col-xl-12">
-                        <input name="title" type="text" class="form-control bg-light border-0" placeholder="Заглавие на статията" style="height: 55px; margin-top:10px;">
+                        <input name="title" type="text" class="form-control bg-light border-0" placeholder="Име на устройството" style="height: 55px; margin-top:10px;">
                     </div>
 
                     <div class="col-xl-12">
-                        <input name="research-link" type="url" class="form-control bg-light border-0" placeholder="Линк към статията" style="height: 55px;">
+                        <input name="research-link" type="url" class="form-control bg-light border-0" placeholder="ID на устройството" style="height: 55px;">
                     </div>
 
-                    <div class="col-xl-12">
-                        <select name = 'category' class="form-select bg-light border-0" style="height: 55px;">
-                        {% if staff.get_category_display == "AFM laboratory" %}
-                            <option value="1" selected>AFM лаборатория</option>
-                            <option value="2">CF лаборатория</option>
-                        {%else%}
-                            <option value="2" selected>CF лаборатория</option>
-                            <option value="1">AFM лаборатория</option>
-                        {%endif%}
-                        </select>
-                    </div>
-
-                    <div id="writersSection" class="col-12">
-                        <div id="writersContainer">
-                            {%for writer in staff.writers%}
-                                <input type="text" placeholder="Add writer" class="form-control bg-light border-0 mt-2 writer-input" style="height: 55px;" value="{{writer}}" oninput="autoSuggest(this)">
-                            {%endfor%}
-                        </div>
-                        <input type="hidden" id="writers" name="writers" value="{%for writer in staff.writers%}{{writer}}{%endfor%}">
-                        <button type="button" class="form-control bg-light border-0" style="height: 55px; margin-left:8px;" onclick='addWriter(event)'>Add writer</button>
-                        <p id="writerLimitMessage" style="color: red; display: none;">Limit of 20 writers reached!</p>
-                    </div>
 
                     <div class="col-12">
-                        <input type="button" value="Registrate" class="btn btn-primary py-md-2 px-md-5 me-3" style='width:200px;' onclick="validateAndCreate();">
-                        <button type="button" onclick="hideResearchForm();" class="btn  btn-outline-deepblue py-md-2 px-md-5 me-3" style='width:200px;'>Close</button>
+                        <input type="button" value="Добави" class="btn btn-primary py-md-2 px-md-5 me-3" style='width:200px;' onclick="validateAndCreate();">
+                        <button type="button" onclick="hideResearchForm();" class="btn  btn-outline-deepblue py-md-2 px-md-5 me-3" style='width:200px;'>Затвори</button>
                     </div>
                 </div>
             </form>
@@ -271,8 +249,7 @@
                               <span class="text-secondary">
                                  <a href="{{ staff.safety_area }}">View Safety Area</a>
                               </span>
-                              <button class="btn btn-primary btn-sm" onclick="editSafetyArea()">Edit</button>
-                              <button class="btn btn-success btn-sm" onclick="addSafetyArea()">Add New</button>
+                              <button class="btn btn-success btn-sm" onclick="addSafetyArea()">Добавяне</button>
                            </li>
                         </ul>
                      </div>
@@ -337,8 +314,8 @@
                            {% if user.full_name == staff.name or user.is_superuser %}
                            <div class="row">
                               <div class="col-sm-12">
-                                 <a class="btn btn-info " target="__blank" onclick="showEditForm()">Edit</a>
-                                 <a class="btn btn-danger " target="__blank" href="/logout">Log out</a>
+                                 <a class="btn btn-info " target="__blank" onclick="">Редакция</a>
+                                 <a class="btn btn-danger " target="__blank" href="/logout">Изход от профила</a>
                               </div>
                            </div>
                            {% endif %}

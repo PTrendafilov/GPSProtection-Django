@@ -8,13 +8,13 @@
               {% csrf_token %}
               <div class="row g-3">
                  <div class="col-xl-12">
-                    <input name="email-login" type="text" class="form-control bg-light border-0" placeholder="Служебен email" style="height: 55px; margin-top:10px;">
+                    <input name="email-login" type="text" class="form-control bg-light border-0" placeholder="Email" style="height: 55px; margin-top:10px;">
                  </div>
                  <div class="col-12">
                     <input name="password-login" type="password" class="form-control bg-light border-0" placeholder="Парола" style="height: 55px;">
                  </div>
                  <div class="col-12">
-                    <input type="submit" value="Login" class="btn btn-primary py-md-2 px-md-5 me-3" style='width:200px;'>
+                    <input type="submit" value="Вход" class="btn btn-primary py-md-2 px-md-5 me-3" style='width:200px;'>
                     <button type="button" onclick="hideLogin(); showRegistration();" class="btn  btn-outline-deepblue py-md-2 px-md-5 me-3" style='width:200px;'>Регистрация</button>
                  </div>
               </div>
@@ -52,8 +52,8 @@
                     </select>
                 </div>
                  <div class="col-12">
-                    <input type="button" value="Registrate" class="btn btn-primary py-md-2 px-md-5 me-3" style='width:200px;' onclick="validateAndRegister();">
-                    <button type="button" onclick="hideRegistration();" class="btn  btn-outline-deepblue py-md-2 px-md-5 me-3" style='width:200px;'>Close</button>
+                    <input type="button" value="Регистрация" class="btn btn-primary py-md-2 px-md-5 me-3" style='width:200px;' onclick="validateAndRegister();">
+                    <button type="button" onclick="hideRegistration();" class="btn  btn-outline-deepblue py-md-2 px-md-5 me-3" style='width:200px;'>Затвори</button>
                  </div>
               </div>
            </form>
